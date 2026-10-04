@@ -1,0 +1,20 @@
+Work in the git repository ~/Nhom5/git-intro on branch `agent`, only inside
+unittest/. First read unittest/test_data.py, policy.py, threat-model.md and
+security-requirements.md.
+
+1. recursive_json_search.py: implement json_search(key, input_object, role=None)
+   with recursive search over nested dicts/lists, merging the results of every
+   level into one list. Enforce SR-01, SR-02, SR-04, SR-05, SR-06 using policy.py:
+   deny by default for missing, unknown or non-string roles; recursive redaction
+   of protected fields; no traversal into protected subtrees; null/float/bool
+   safe; depth > 100 raises ValueError; return copies; freeze the policy at
+   import. Do not modify policy.py or test_data.py.
+2. test_json_search.py (unittest, class json_search_test, one-line docstrings):
+   keep test_search_found, test_search_not_found, test_is_a_list and add at
+   least 3 security tests whose docstrings start with the SR they verify,
+   e.g. "[SR-01] ...".
+3. Run: cd unittest && python3 -m unittest -v test_json_search.py
+   and fix until all tests pass. Show git status, git diff --stat and a table
+   SR -> test.
+Rules: present your plan and wait for my approval before editing. Do not commit,
+push, switch branches, install packages or use the network.
